@@ -28,4 +28,12 @@ function weatherLayout(data) {
   console.log(rawData.location.name);
   console.log(rawData);
   document.getElementById("temp-f").innerText = `${data.current.temp_f}°F`;
+  document.getElementById("temp-c").innerText = `${data.current.temp_c}°C`;
+  // const weatherImageDiv = document.getElementById("weather-image");
+  // const img = document.createElement("img");
+  // img.src = `http:${data.current.condition.icon}`;
+  // weatherImageDiv.append(img);
+   document.getElementById("description").innerText = data.current.condition.text;
+   document.getElementById("location-name").innerText = `${data.location.name}, ${data.location.country}`;
+   const img = document.querySelector("#weather").src = `http:${data.current.condition.icon}`;
 }
