@@ -10,6 +10,11 @@ function fetchWeather(searchItem) {
     });
 }
 
+document.getElementById("weather-search").addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    buttonHandler();
+  }
+});
 const button = document.getElementById("submit-button");
 button.addEventListener("click", buttonHandler);
 
@@ -20,4 +25,7 @@ function buttonHandler() {
 
 function weatherLayout(data) {
   const rawData = data;
+  console.log(rawData.location.name);
+  console.log(rawData);
+  document.getElementById("temp-f").innerText = `${data.current.temp_f}°F`;
 }
