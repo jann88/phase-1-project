@@ -1,27 +1,124 @@
-* {
-  background-color: rgb(55, 61, 61);
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* This is to override default HTML styling from site above ^ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+
+body {
+  background-color: #05336B;
 }
 
 #weather-search {
-  background-color: white;
-  align-items: center;
   width: 180px;
+  background-color: #375C89;
+  border: none;
+  border-radius: 20px;
+  height: 26px;
+  text-align: center;
+  color: white;
+  
+}
+#weather-search:focus {
+  outline: none;
+}
+#weather-search:focus::placeholder {
+  color: transparent;
+}
+::placeholder {
+  color: white;
+  text-align: center;
+  padding: 0px , 10px;
 }
 
-#main-container {
-  display: block;
-  margin: auto;
+#mid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-#main-container h1 {
-  font-size: 36px;
+#mid-container h1 {
+  font-size: 40px;
   background: -webkit-linear-gradient(#ffafbd, #ffc3a0);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  margin-bottom: 7px;
 }
-input #submit-button {
+#submit-button {
   width: 80px;
+  border-radius: 20px;
+  background-color: #375C89 ;
+  border: none;
+  height: 28px;
+  color: white;
+}
+#submit-button:hover {
+  cursor: pointer;
+  border: 2px solid white;
+}
+#main-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 100vh;
+}
+#top-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#bottom-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
