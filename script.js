@@ -27,6 +27,7 @@ function weatherLayout(data) {
   const rawData = data;
   console.log(rawData.location.name);
   console.log(rawData);
+  document.getElementById("temp-header").innerText = "Temperature in your Area:";
   document.getElementById("temp-f").innerText = `${data.current.temp_f}°F`;
   document.getElementById("temp-c").innerText = `${data.current.temp_c}°C`;
   // const weatherImageDiv = document.getElementById("weather-image");
@@ -36,4 +37,5 @@ function weatherLayout(data) {
    document.getElementById("description").innerText = data.current.condition.text;
    document.getElementById("location-name").innerText = `${data.location.name}, ${data.location.country}`;
    const img = document.querySelector("#weather").src = `http:${data.current.condition.icon}`;
+   document.getElementById("parent").classList.add("background-card");
 }
