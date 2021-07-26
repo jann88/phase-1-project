@@ -2,6 +2,9 @@
 //it takes in the value from the event listener function and then fetches the weather for that location
 //upon fetch, jsonifying, it will call the weatherLayout function wich is responsible for adding the 
 //weather information to the dom and then to the webpage
+document.addEventListener("DOMContentLoaded", () => {
+
+});
 function fetchWeather(searchItem) {
   return fetch(
     `http://api.weatherapi.com/v1/current.json?key=e245bd4daa254d44a24160310212007&q=${searchItem}&aqi=yes`
@@ -11,6 +14,9 @@ function fetchWeather(searchItem) {
     })
     .then((data) => {
       weatherLayout(data);
+    })
+    .catch(() => {
+      alert("Please enter a valid Location.")
     });
 }
 // this code handles the events of pressing enter and clicking submit
@@ -30,14 +36,11 @@ function buttonHandler() {
   const inputValue = document.getElementById("weather-search").value;
   fetchWeather(inputValue);
 }
-
-
-
 //this function will be cleaned up soon (hopefully)
 function weatherLayout(data) {
   console.log(data.location.name);
   console.log(data);
-  document.getElementById("temp-header").innerText = "Temperature in your Area:";
+  document.getElementById("temp-header").innerText = "Additional Information";
   document.getElementById("temp-f").innerText = `${data.current.temp_f}°F`;
   document.getElementById("temp-c").innerText = `${data.current.temp_c}°C`;
   document.getElementById("description").innerText = data.current.condition.text;
@@ -60,10 +63,10 @@ function weatherLayout(data) {
 //searching upon next refresh
   defaultButton.addEventListener("click",(event) => {
     const defLocation = document.getElementById("weather-search").value;
-    fetch('http://localhost:3000/location/0', {
-      method : "POST",
+    fetch('http://localhost:3000/locations', {
+      method : "PATCH",
       headers: {"Content-type":"application/json"},
-      body: JSON.stringify(location[0]=defLocation)
+      body: JSON.stringify({defaultLocation:defLocation})
     })
   })
 
