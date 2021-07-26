@@ -1,10 +1,28 @@
+
+document.addEventListener("DOMContentLoaded", defaultLocationGrabber());
+
+function defaultLocationGrabber () {
+  return fetch('http://localhost:3000/locations')
+  .then((resp) => resp.json())
+  .then((localData) => {
+    const defaultLocation = localData.defaultLocation;
+    if (defaultLocation !== "") {
+      fetchWeather(defaultLocation);
+    }
+  })
+}
+
+
+
+
+
+
+
+
 //this is my function for grabbing weather info from this public API 
 //it takes in the value from the event listener function and then fetches the weather for that location
 //upon fetch, jsonifying, it will call the weatherLayout function wich is responsible for adding the 
 //weather information to the dom and then to the webpage
-document.addEventListener("DOMContentLoaded", () => {
-
-});
 function fetchWeather(searchItem) {
   return fetch(
     `http://api.weatherapi.com/v1/current.json?key=e245bd4daa254d44a24160310212007&q=${searchItem}&aqi=yes`
