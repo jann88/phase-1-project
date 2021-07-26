@@ -29,13 +29,23 @@ function weatherLayout(data) {
   document.getElementById("temp-header").innerText = "Temperature in your Area:";
   document.getElementById("temp-f").innerText = `${data.current.temp_f}°F`;
   document.getElementById("temp-c").innerText = `${data.current.temp_c}°C`;
-  // const weatherImageDiv = document.getElementById("weather-image");
-  // const img = document.createElement("img");
-  // img.src = `http:${data.current.condition.icon}`;
-  // weatherImageDiv.append(img);
-   document.getElementById("description").innerText = data.current.condition.text;
-   document.getElementById("location-name").innerText = `${data.location.name}, ${data.location.country}`;
-   const img = document.querySelector("#weather").src = `http:${data.current.condition.icon}`;
-   document.getElementById("parent").classList.add("background-card");
-   document.getElementById("date-time").innerText = data.location.localtime;
+  document.getElementById("description").innerText = data.current.condition.text;
+  document.getElementById("location-name").innerText = `${data.location.name}, ${data.location.country}`;
+  const img = document.querySelector("#weather").src = `http:${data.current.condition.icon}`;
+  document.getElementById("parent").classList.add("background-card");
+  document.getElementById("date-time").innerText = data.location.localtime;
+  document.getElementById("humidity").innerText = `${data.current.humidity}%`;
+  //document.getElementById("high-low").innerText = ;
+  document.getElementById("UV-index").innerText = `${data.current.uv} of 10`;
+  document.getElementById("wind-mph").innerText = `${data.current.wind_mph} mph`;
+  const defaultButton = document.querySelector(".hidden");
+  defaultButton.classList.remove("hidden");
+  defaultButton.addEventListener("click",(event) => {
+    fetch('http://localhost:3000/location', {
+      method : "POST",
+      headers: {"Content-type":"application/json"},
+      body: JSON.stringify({defaultLocation:inputValue})
+    })
+  })
+
 }

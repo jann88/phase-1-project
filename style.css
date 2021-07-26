@@ -48,6 +48,23 @@ table {
 }
 
 
+
+
+
+
+
+/* /////////////////////////// */
+
+.hidden {
+  display: none;
+}
+/* .shown {
+  display: block;
+  transition: 3ms;
+} */
+
+
+
 h2 {
   font-family: 'Ubuntu', sans-serif;
 
