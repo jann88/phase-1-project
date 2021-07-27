@@ -77,6 +77,8 @@ function timeConverter(weatherData) {
     document.getElementById("date-time").innerText =`${timeAsNum}:${hoursArray[1]} AM`
  };
 }
+
+
 function countryCatcher(countryData) {
   const localCountry = countryData.location.country;
   if (localCountry == "United States of America") {

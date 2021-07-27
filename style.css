@@ -61,7 +61,7 @@ table {
 }
 .show {
   opacity: 100%;
-  transition: .5s ease-in;
+  transition: 1.0s ease-in;
 }
 h1,h2,h3,p{
   font-family: 'Ubuntu', sans-serif;
