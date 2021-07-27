@@ -7,7 +7,8 @@ function defaultLocationGrabber () {
   .then((localData) => {
     const defaultLocation = localData.defaultLocation;
     if (defaultLocation !== "") {
-      fetchWeather(defaultLocation);
+      fetchWeather(defaultLocation)
+      document.querySelector(".hidden").classList.add("show");;
     }
   })
 }
@@ -25,13 +26,15 @@ function defaultLocationGrabber () {
 //weather information to the dom and then to the webpage
 function fetchWeather(searchItem) {
   return fetch(
-    `http://api.weatherapi.com/v1/current.json?key=e245bd4daa254d44a24160310212007&q=${searchItem}&aqi=yes`
+    `http://api.weatherapi.com/v1/forecast.json?key=e245bd4daa254d44a24160310212007&q=${searchItem}&days=1&aqi=no&alerts=no`
   )
     .then((resp) => {
       return resp.json();
     })
     .then((data) => {
       weatherLayout(data);
+      timeConverter(data);
+      countryCatcher(data);
     })
     .catch(() => {
       alert("Please enter a valid Location.")
@@ -53,23 +56,51 @@ button.addEventListener("click", buttonHandler);
 function buttonHandler() {
   const inputValue = document.getElementById("weather-search").value;
   fetchWeather(inputValue);
+  document.querySelector(".hidden").classList.add("show");
 }
+
+//this function converts the time into standard time and adds the correct suffix then adds it to page
+function timeConverter(weatherData) {
+  const time = weatherData.location.localtime.substring(11);
+  const hoursArray = time.split(":");
+  const hours = hoursArray[0];
+  const timeAsNum = parseInt(hours,10);
+  if (timeAsNum > 12) {
+    document.getElementById("date-time").innerText =`${timeAsNum -12}:${hoursArray[1]} PM`;
+
+  } 
+  else if(timeAsNum == 12) {
+    document.getElementById("date-time").innerText =`${timeAsNum}:${hoursArray[1]} PM`
+  }
+  
+  else {
+    document.getElementById("date-time").innerText =`${timeAsNum}:${hoursArray[1]} AM`
+ };
+}
+function countryCatcher(countryData) {
+  const localCountry = countryData.location.country;
+  if (localCountry == "United States of America") {
+    document.getElementById("location-name").innerText = `${countryData.location.name}, ${countryData.location.region}`;
+  }
+  else {
+    document.getElementById("location-name").innerText = `${countryData.location.name}, ${countryData.location.country}`;
+
+  }
+}
+
 //this function will be cleaned up soon (hopefully)
 function weatherLayout(data) {
   console.log(data.location.name);
   console.log(data);
-  document.getElementById("temp-header").innerText = "Additional Information";
-  document.getElementById("temp-f").innerText = `${data.current.temp_f}°F`;
-  document.getElementById("temp-c").innerText = `${data.current.temp_c}°C`;
+  document.getElementById("temp-f").innerText = `${Math.round(data.current.temp_f)}°F`;
   document.getElementById("description").innerText = data.current.condition.text;
-  document.getElementById("location-name").innerText = `${data.location.name}, ${data.location.country}`;
   const img = document.querySelector("#weather").src = `http:${data.current.condition.icon}`;
   document.getElementById("parent").classList.add("background-card");
-  document.getElementById("date-time").innerText = data.location.localtime;
-  document.getElementById("humidity").innerText = `${data.current.humidity}%`;
-  //document.getElementById("high-low").innerText = ;
-  document.getElementById("UV-index").innerText = `${data.current.uv} of 10`;
-  document.getElementById("wind-mph").innerText = `${data.current.wind_mph} mph`;
+  const minTemp = Math.round(data.forecast.forecastday[0].day.mintemp_f);
+  const maxTemp = Math.round(data.forecast.forecastday[0].day.maxtemp_f);
+  document.getElementById("high-low").innerText = `${minTemp}°/${maxTemp}°`;
+
+
   //this is adding/showing a button for the user to press after weather info has been displayed
   //after info is on screen it will show this button that will soon provide the user the ability to save
   //a default location, upon reloading webpage their default location's current weather will be displayed
@@ -79,8 +110,9 @@ function weatherLayout(data) {
 //this event listener will send the value they searched for to my JSON server so that it can be grabbed 
 //by the first fetch function in order to display up to data weather info for that location even before
 //searching upon next refresh
-  defaultButton.addEventListener("click",(event) => {
-    const defLocation = document.getElementById("weather-search").value;
+  defaultButton.addEventListener("click",() => {
+    const defLocation = document.getElementById("location-name").innerText;
+    console.log(defLocation);
     fetch('http://localhost:3000/locations', {
       method : "PATCH",
       headers: {"Content-type":"application/json"},
@@ -88,4 +120,8 @@ function weatherLayout(data) {
     })
   })
 
+// const time = data.location.localtime.substring(11);
+// const hoursArray = time.split(":");
+// const hours = hoursArray[0];
+// const numHours = parseInt(hours,10);
 }
