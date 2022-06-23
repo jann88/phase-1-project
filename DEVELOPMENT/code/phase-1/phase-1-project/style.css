@@ -1,35 +1,33 @@
 :root {
-    --main-color: white;
-    --black: black;
-    background: #010103;
-    border: 1rem solid rgba(255, 255, 255, 0.3);
+    --main-color: #d3ad7f;
+    --black: #13131a;
+    --bg: #010103;
+    --border: .1rem solidrgb(255, 255, 255, .3);
 }
 
 * {
-    font-family: "Roboto", san-serrif;
-    margin: 0%;
-    padding: 0%;
+    font-family: "Roboto", sans-serif;
+    margin: 0% padding 0;
     box-sizing: border-box;
     outline: none;
     border: none;
     text-decoration: none;
     text-transform: capitalize;
-    transition: 2s linear;
+    transition: .2s linear;
 }
 
 html {
-    font-size: url("");
+    font-size: 62.5%;
     overflow: hidden;
     scroll-padding-top: 9rem;
     scroll-behavior: smooth;
-    background-attachment: fixed;
 }
 
 html::-webkit-scrollbar {
     width: .8rem;
 }
 
-html::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track-piece {
     background: transparent;
 }
 
@@ -40,37 +38,8 @@ html::-webkit-scrollbar-thumb {
 
 body {
     background: var(--bg);
-    display: flex;
-    color: white;
-    padding: 50px;
-    font-variant: small caps;
-    font-size: 100px;
-    font-family: fantasy;
-    letter-spacing: 25px;
 }
 
-#sticky {
-    position: fixed;
-    top: 0%;
-    width: 100%;
-}
-
-.menu {
-    background-color: white;
-    text-align: center;
-    list-style: none;
-}
-
-.menu-ul {
-    margin: 0;
-    padding: 0;
-    display: inline;
-    list-style: none;
-}
-
-.menu-ul li {
-    font-size: 15px;
-    list-style: none;
-    display: inline-block;
-    padding: 30px 30px 36px 35px;
+.header {
+    background: var(--bg)
 }
