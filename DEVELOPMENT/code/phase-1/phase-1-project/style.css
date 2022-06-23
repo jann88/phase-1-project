@@ -40,6 +40,138 @@ body {
     background: var(--bg);
 }
 
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 3rem 3rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--main-color);
+    cursor: pointer;
+}
+
+.btn:hover {
+    letter-spacing: 2rem;
+}
+
 .header {
-    background: var(--bg)
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 7%;
+    border-bottom: var(--border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000
+}
+
+header.logo img {
+    height: 6rem;
+}
+
+header.navbar a {
+    margin: 0 1rem;
+    font-size: 1.6;
+    color: #fff;
+}
+
+header.navbar a:hover {
+    color: var(--main-color);
+    border-bottom: 1rem solid var(--main-color);
+    padding-bottom: 5rem;
+}
+
+header .icons a {
+    color: #fff;
+    cursor: pointer;
+    font-size: 2.5;
+    margin-left: 2rem;
+}
+
+header .icons div:hover {
+    color: var (beige);
+}
+
+#menu-btn {
+    display: none;
+}
+
+.headersearch-form {
+    position: absolute;
+    top: 115%;
+    right: 7%;
+    background: #fff;
+    width: 50rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.headersearch-form input {
+    height: 100%;
+    witdth: 100%;
+    color: var(--black);
+    padding: 1rem;
+    text-transform: none;
+}
+
+.headersearch-form label {
+    cursor: pointer;
+    font-size: 2.2rem;
+    margin-right: 1rem;
+    color: var(--black);
+}
+
+.headersearch-form label:hover {
+    color: var(--main-color);
+}
+
+.header .order-items-container {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    height: calc(100vh - 9.5rem);
+    width: 35rem;
+    background: #fff;
+    padding: 0 1.5rem;
+}
+
+.header .order-items-container .order-items {
+    position: relative;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header .order-items-container .order-items.fa-times {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--black);
+}
+
+.header .order-items-container .order-items.fa-times .hover {
+    color: var(--main-color);
+}
+
+.header .order-items-container .order-items img {
+    height: 7rem;
+}
+
+.header .order-items-container .order-items .order-items .container h3 {
+    font-size: 2rem;
+    color: var(--black);
+    padding-bottom: 5rem;
+}
+
+.header .order-items-container .order-items .order-items .container . price {
+    font-size: 1.5rem;
+    color: var(--main-color);
 }
