@@ -70,9 +70,12 @@ h1,h2,h3,p{
 }
 
 body {
-  background-color: #1b9ae1;
-  background: linear-gradient(180deg,#1b9ae1 0.38%, rgba(27,154,225,0) 188%);
+  background-color: orange;
+  background: linear-gradient(180deg,orange 0.38%, rgba(27,154,225,0) 188%);
   color: white;
+  border: solid;
+  border-color: #0077b5;
+  height: 100vh;
 }
 
 #weather-search {
@@ -80,6 +83,7 @@ body {
   background-color: #375c8983;
   border: none;
   border-radius: 20px;
+  border-color: #375C89;
   height: 26px;
   text-align: center;
   color: white;
