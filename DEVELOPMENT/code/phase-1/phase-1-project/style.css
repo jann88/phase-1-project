@@ -76,6 +76,8 @@ header.navbar a {
     margin: 0 1rem;
     font-size: 1.6;
     color: #fff;
+    text-align: center;
+    text-decoration-color: white;
 }
 
 header.navbar a:hover {
@@ -111,6 +113,10 @@ header .icons div:hover {
     transform-origin: top;
 }
 
+.headersearch-form .active {
+    transform: scaleY(1);
+}
+
 .headersearch-form input {
     height: 100%;
     witdth: 100%;
@@ -133,7 +139,7 @@ header .icons div:hover {
 .header .order-items-container {
     position: absolute;
     top: 100%;
-    right: 0;
+    right: -100%;
     height: calc(100vh - 9.5rem);
     width: 35rem;
     background: #fff;
@@ -146,6 +152,10 @@ header .icons div:hover {
     display: flex;
     align-items: center;
     gap: 1.5rem;
+}
+
+.header .order-items-container .order-item s .active {
+    right: 0%;
 }
 
 .header .order-items-container .order-items.fa-times {
@@ -174,4 +184,58 @@ header .icons div:hover {
 .header .order-items-container .order-items .order-items .container . price {
     font-size: 1.5rem;
     color: var(--main-color);
+}
+
+.header .order-items-container .btn {
+    width: 100%;
+    text-align: center;
+}
+
+
+/*media querries*/
+
+@media (max-witdth:991px) {
+    htmk {
+        font-size: 55%;
+    }
+    .header {
+        padding: 1.5rem 2rem;
+    }
+}
+
+@media (max-witdth:768px) {
+    #menu-btn {
+        display: inblock;
+    }
+    .header .navbar .active {
+        right: 0;
+    }
+    .header .navbar {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: #fff;
+        width: 30rem;
+        height: calc(100h-9.5rem);
+    }
+    .header .navbar a {
+        color: var(--black);
+        margin: 1.5rem;
+        padding: 5rem;
+        font-size: 2rem;
+    }
+}
+
+.header .search-form {
+    width: 90rem;
+    right: 2rem;
+}
+
+@media(max-witdth:450px) {
+    html {
+        font-size: 50%;
+    }
+    .header {
+        padding: 1.5rem 2rem;
+    }
 }
