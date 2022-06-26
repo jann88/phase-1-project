@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Hub</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div id="main-container">
+      <div id="top-container">
+        <h1>Weather Hub</h1>
+        <div id="inputs">
+          <input
+            type="text"
+            id="weather-search"
+            placeholder="Search by City or Zip Code"
+          />
+          <input
+            type="submit"
+            for="weather-search"
+            value="Search"
+            id="submit-button"
+            class="button-style"
+          />
+        </div>
+        
+      </div>
+      <div id="mid-container" class="hidden">
+        <div id="parent">
+          <div id="left-child">
+            <h1 id="location-name"></h1>
+            <p id="date-time"></p>
+            <h2 id="temp-f"></h2>
+            <h1 id="description"></h1>
+        </div>
+        <div id="right-child">
+            <img src="" id="weather"/>
+              <p id="high-low"></p>
+              <button id="default-button"class="hidden button-style">Nairobi</button>
+          </div>
+        </div>          
+      </div>
+      <div id="bottom-container"></div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
