@@ -88,7 +88,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [LinkedIn](https://www.linkedin.com/in/kyleortiz/) - kyleaortiz@gmail.com
+Your Name -Janet 
 
 Project Link: [Repo](https://github.com/kyle-ortiz/weather-wizard)
 
