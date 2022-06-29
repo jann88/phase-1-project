@@ -55,6 +55,7 @@ It also allows them to set a default location for revisiting the application and
 - [] Forecast for a week or five day period
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+live link : https://jann88.github.io/phase-1-project/
 
 
 
